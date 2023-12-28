@@ -41,7 +41,7 @@ public class CalendarEvent {
 
     public CalendarEvent(CalendarEventDto dto) {
         User user= new User();
-        user.setId(dto.getUserId());
+        user.setId(dto.getUserId() !=null ? dto.getUserId() : 1);
         this.id = dto.getId();
         this.dateFrom = parseDateFromString(dto.getDateFrom());
         this.dateTo = parseDateFromString(dto.getDateTo());

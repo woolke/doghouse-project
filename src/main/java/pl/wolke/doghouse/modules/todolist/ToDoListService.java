@@ -12,6 +12,8 @@ interface ToDoListService {
 
     TodoList add(TodoListRequest item);
 
+    TodoList complete(UUID itemId);
+
     TodoList edit(UUID id, TodoListRequest item);
 
     void remove(UUID itemId);

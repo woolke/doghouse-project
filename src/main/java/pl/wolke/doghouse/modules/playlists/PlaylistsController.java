@@ -9,7 +9,7 @@ import pl.wolke.doghouse.modules.playlists.models.Playlist;
 import java.util.List;
 
 //for Angular Client (withCredentials)
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials="true")
+@CrossOrigin(originPatterns = "*", maxAge = 3600, allowCredentials="true")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/playlists")

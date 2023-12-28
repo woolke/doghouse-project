@@ -42,6 +42,22 @@ class ToDoListServiceImpl implements ToDoListService {
     }
 
     @Override
+    public TodoList complete(UUID itemId) {
+        if (itemId == null) {
+            throw new ResponseStatusException(BAD_REQUEST, "Id is requierd");
+        } else {
+            Optional<TodoList> byId = repository.findById(itemId);
+            if (byId.isPresent()) {
+                return repository.save(byId.get().toBuilder()
+                        .completedAt(new Date())
+                        .build());
+            } else {
+                throw new ResponseStatusException(NOT_FOUND, "Unable to find resource");
+            }
+        }
+    }
+
+    @Override
     public TodoList edit(UUID id, TodoListRequest item) {
         if (id == null) {
             throw new ResponseStatusException(BAD_REQUEST, "Id is requierd");

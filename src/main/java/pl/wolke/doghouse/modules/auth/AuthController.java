@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import jakarta.validation.Valid;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
@@ -33,13 +34,14 @@ import pl.wolke.doghouse.core.security.jwt.JwtUtils;
 import pl.wolke.doghouse.core.security.services.UserDetailsImpl;
 
 //for Angular Client (withCredentials)
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials = "true")
+@CrossOrigin(originPatterns = "*", maxAge = 3600, allowCredentials = "true")
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/auth")
 public class AuthController {
-    @Autowired
-    AuthService authService;
+    private final AuthService authService;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {

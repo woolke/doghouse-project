@@ -4,13 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import pl.wolke.doghouse.core.security.services.UserService;
 import pl.wolke.doghouse.modules.auth.AuthService;
-import pl.wolke.doghouse.modules.auth.models.Role;
 import pl.wolke.doghouse.modules.auth.models.User;
 import pl.wolke.doghouse.modules.commons.exception.ContentNotAllowedException;
-import pl.wolke.doghouse.modules.playlists.models.Playlist;
 import pl.wolke.doghouse.modules.user.models.ChangePasswordRequest;
 
 import java.util.List;

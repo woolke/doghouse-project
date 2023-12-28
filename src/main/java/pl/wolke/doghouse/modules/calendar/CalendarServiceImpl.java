@@ -27,11 +27,6 @@ public class CalendarServiceImpl implements CalendarService {
 
     @Override
     public boolean save(CalendarEvent event) {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         if (event.getCommonKey() != null) {
             calendarEventRepository.deleteAllByCommonKeyEquals(event.getCommonKey());
         }
